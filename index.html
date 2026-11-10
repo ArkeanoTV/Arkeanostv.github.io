@@ -5968,7 +5968,7 @@ window.addEventListener("hashchange",function(){TMG.on=0;cancelAnimationFrame(TM
 ].forEach(function(m){m.full=1;m.s=0;m.e=m.len;m.pr=8.5;m.ses=["17:00","20:30","23:15"];m.ref="Mini película de "+m.by+" · "+Math.floor(m.len/60)+" min";CINE.push(m)});
 function cnDur(m){var d=m.full?m.len:(m.e-m.s);return d>=60?Math.round(d/60)+" min":d+" s"}
 /* Ficha: sin tráiler; se avisa de que la película se ve al reservar */
-c1=(function(f){return function(){var h=f.apply(this,arguments),m=CINE[cs.m];
+c1=(function(f){return function(){var h=f.apply(this,arguments),m=CINE[cs.m];if(!m.full)return h;
  return h.replace(/<p class="fn">Tráiler: [^<]*<\/p><button class="b" data-a="trl" data-v="\d+">▶ Ver tráiler<\/button>/,'<p class="fn">'+(m.full?m.ref:"Duración: "+cnDur(m)+" · "+m.ref)+'</p><p class="cn-note">🎟️ Reserva tu entrada y podrás ver la película completa en la sala.</p>')}})(c1);
 /* Entrada: botón para entrar en la sala y ver la película */
 c4=(function(f){return function(){var h=f.apply(this,arguments),m=CINE[cs.m];
